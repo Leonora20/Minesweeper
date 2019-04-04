@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body onload="main()">
+
+    <div id="menu">
+        <label id="select_level">Select Level :</label>
+		<select id="select1">
+			<option value="1" selected="selected">Easy (6Mines)</option>
+			<option value="2">Medium (8Mines)</option>
+			<option value="3">Difficult (10Mines)</option>
+		</select>
+		</br>
+        <button id="play" onClick='GetSelectedItem("select1")'>Play</button>
+        <button id="new_game" onClick=location.reload()>New Game</button>
+    </div>
+    <div id="smiley">
+        <img id="img" src="smiley.png" alt="smiley">
+    </div> 
+    <div id="wrapper">
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+</html>
