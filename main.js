@@ -85,7 +85,7 @@ function divClick(event){
     var y = clickedDiv.getAttribute("data-y");
     var x_int = parseInt(x);
     var y_int = parseInt(y);
-    var tempPair = new Pair(x, y);
+    //var tempPair = new Pair(x, y);
 
     var exposeData = tile_data[x][y];
 
@@ -127,21 +127,16 @@ function flood(xy_pair, row_size){
     //console.log(floodArray.length);
     for (var i = 0; i < floodArray.length; i++) {
         console.log("x:"+floodArray[i].x + "," + floodArray[i].y + ": "+tile_data[floodArray[i].x][floodArray[i].y] );
-        //console.log("lenght: "+floodArray.length);
 
         var element_id = floodArray[i].x + "-" + floodArray[i].y ;
             var n_div = document.getElementById(element_id);
-            //console.log("n_div",n_div);
             var tile_open = n_div.getAttribute("tile_open");
-            //console.log(tile_open);
-            var newPair = new Pair(floodArray[i].x, floodArray[i].y);
+           // var newPair = new Pair(floodArray[i].x, floodArray[i].y);
             var divId = floodArray[i].x + "-" + floodArray[i].y ;
             console.log(divId);
             
-        if(tile_data[floodArray[i].x][floodArray[i].y] == 0 && tile_open == false){           
-            //flood(xy_pair, row_size, exposeData, clickedDiv, x_int, y_int); 
+        if(tile_data[floodArray[i].x][floodArray[i].y] == 0 && tile_open == "false"){         
             revealTile(tile_data[floodArray[i].x][floodArray[i].y], divId, floodArray[i].x, floodArray[i].y);
-            //flood(newPair, row_size, tile_data[floodArray[i].x][floodArray[i].y], clickedDiv, floodArray[i].x, floodArray[i].y);
         }
         else if(tile_data[floodArray[i].x][floodArray[i].y] > 0){
             revealTile(tile_data[floodArray[i].x][floodArray[i].y], divId, floodArray[i].x, floodArray[i].y);
@@ -277,9 +272,8 @@ function getSurroundings(xy_pair, row_size) {
 
 function assign_mines(size) {
 
-    let mine_count = Math.floor((size / 100) * 9);
+    let mine_count = Math.floor((size / 100) * 10);
     var row_size = Math.sqrt(size);
-    //console.log("RowSize" + row_size);
 
     while (mines.length <= mine_count) {
         var r = getRandomArbitrary(1, size);
