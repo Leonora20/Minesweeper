@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (true_mines_flagged == mines.length && total_divs_flagged == mines.length) {
             document.getElementById("img").src = img.src.replace("smiley.png", "winner.png");
-            alert("You Win...!");
+            //alert("You Win...!");
         } else {
             var tile = event.target;
 
@@ -115,13 +115,13 @@ function revealTile(exposeData, divId, x_int, y_int){
         clickedDiv.setAttribute("tile_open", true);
         //var tile_open = clickedDiv.getAttribute("tile_open");
 
-        flood(new Pair(x_int,y_int), row_size, exposeData, clickedDiv, x_int, y_int);
+        flood(new Pair(x_int,y_int), row_size);
     }
 }
 
 //------------------------flooding-------------------------------------------//
 
-function flood(xy_pair, row_size, exposeData, clickedDiv, x_int, y_int){
+function flood(xy_pair, row_size){
     //console.log(xy_pair);
     var floodArray = getSurroundings(xy_pair, row_size);
     //console.log(floodArray.length);
@@ -140,11 +140,11 @@ function flood(xy_pair, row_size, exposeData, clickedDiv, x_int, y_int){
             
         if(tile_data[floodArray[i].x][floodArray[i].y] == 0 && tile_open == false){           
             //flood(xy_pair, row_size, exposeData, clickedDiv, x_int, y_int); 
-            revealTile(exposeData, divId, floodArray[i].x, floodArray[i].y);
-            flood(newPair, row_size, tile_data[floodArray[i].x][floodArray[i].y], clickedDiv, floodArray[i].x, floodArray[i].y);
+            revealTile(tile_data[floodArray[i].x][floodArray[i].y], divId, floodArray[i].x, floodArray[i].y);
+            //flood(newPair, row_size, tile_data[floodArray[i].x][floodArray[i].y], clickedDiv, floodArray[i].x, floodArray[i].y);
         }
         else if(tile_data[floodArray[i].x][floodArray[i].y] > 0){
-            revealTile(exposeData, divId, floodArray[i].x, floodArray[i].y);
+            revealTile(tile_data[floodArray[i].x][floodArray[i].y], divId, floodArray[i].x, floodArray[i].y);
         } 
         /*else if(tile_data[floodArray[i].x][floodArray[i].y] == -1){
         }*/
