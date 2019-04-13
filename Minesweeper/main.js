@@ -244,7 +244,7 @@ function getSurroundings(xy_pair, row_size) {
 
 function assign_mines(size) {
 
-    let mine_count = Math.floor((size / 100) * 2);
+    let mine_count = Math.floor((size / 100) * 10);
     var row_size = Math.sqrt(size);
 
     while (mines.length <= mine_count) {
