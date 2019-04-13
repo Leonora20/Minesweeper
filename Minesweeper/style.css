@@ -1,0 +1,106 @@
+:root {
+    --col-size: 0;
+    --row-size: 0;
+}
+
+.box {
+    background-color: lightgrey;
+    color: #fff;
+    border-radius: 0px;
+    padding: 10px;
+    font-size: 150%;
+}
+
+#menu {
+    text-align: center;
+}
+#menu select_level {
+    display: inline-block;
+}
+
+#smiley {
+    text-align: center;
+}
+#smiley img {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+}
+
+#body {
+    text-align: center;
+}
+#wrapper {
+    display: grid;
+    justify-content: center;
+    grid-gap: 1px;
+    grid-template-columns: repeat(var(--col-size), 50px);
+    grid-template-rows: repeat(var(--row-size), 50px);
+    grid-auto-flow: row;
+    border-color: whitesmoke;
+    border-width: 10px;
+    border-style: outset; 
+  } 
+
+#play {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+#new_game {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+  .blank_tile {
+    background-image: url("game_images/unclickedtile.png");
+    background-size: 50px 50px;
+  }
+
+  .empty_tile {
+    background-image: url("game_images/blank.png");
+    background-size: 50px 50px;
+  }
+
+  .mine_tile {
+    background-image: url("game_images/mine.jpg");
+    background-size: 50px 50px;
+  }
+
+  .flag_tile {
+    background-image: url("game_images/flag.png");
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+  } 
+
+  .tile_1 {
+    background-image: url("game_images/one.png");
+    background-size: 50px 50px;
+  }
+  .tile_2 {
+    background-image: url("game_images/two.png");
+    background-size: 50px 50px;
+  }
+  .tile_3 {
+    background-image: url("game_images/three.png");
+    background-size: 50px 50px;
+  }
+  .tile_4 {
+    background-image: url("game_images/four.png");
+    background-size: 50px 50px;
+  }
+  .tile_5 {
+    background-image: url("game_images/five.png");
+    background-size: 50px 50px;
+  }
+  .tile_6 {
+    background-image: url("game_images/six.png");
+    background-size: 50px 50px;
+  }
+  .tile_7 {
+    background-image: url("game_images/seven.png");
+    background-size: 50px 50px;
+  }
+  .tile_8 {
+    background-image: url("game_images/eight.png");
+    background-size: 50px 50px;
+  }
