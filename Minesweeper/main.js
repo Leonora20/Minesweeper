@@ -21,13 +21,9 @@ function GetSelectedItem(el) {
 //------------------------right click-------------------------------------------//
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.addEventListener('contextmenu', function (event) {
+    document.getElementById('wrapper').addEventListener('contextmenu', function (event) {
         event.preventDefault();
-
-        if (true_mines_flagged == mines.length && total_divs_flagged == mines.length) {
-            document.getElementById("img").src = img.src.replace("game_images/smiley.png", "game_images/winner.png");
-            alert("You Win...!");
-        } else {
+    
             var tile = event.target;
 
             if (tile.getAttribute("data-isFlag") == "true") {
@@ -51,8 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     total_divs_flagged++;
                 }
+                if (true_mines_flagged == mines.length && total_divs_flagged == mines.length) {
+                    document.getElementById("img").src = img.src.replace("game_images/smiley.png", "game_images/winner.png");
+                    //alert("You Win...!");
+                }
             }
-        }
+
+        //console.log("True Mines: "+true_mines_flagged);
+        //console.log("Total divs flagged: "+total_divs_flagged);
     }, false)
 });
  
@@ -242,7 +244,7 @@ function getSurroundings(xy_pair, row_size) {
 
 function assign_mines(size) {
 
-    let mine_count = Math.floor((size / 100) * 10);
+    let mine_count = Math.floor((size / 100) * 2);
     var row_size = Math.sqrt(size);
 
     while (mines.length <= mine_count) {
